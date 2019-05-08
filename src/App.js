@@ -1,26 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import { Route, Switch } from "react-router-dom";
+import Home from "./containers/home/home";
+import Resto from "./containers/resto/resto";
+import RestoKfc from "./containers/kfc/Restokfc";
+import RestoMcd from "./containers/mcd/Restomcd";
+import RestoBking from "./containers/bking/Restobking";
+import Payment from "./containers/payment/payment";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  render() {
+    return (
+      <div>
+        <Switch>
+          <Route path="/" exact component={Home} />
+          <Route path="/resto" exact component={Resto} />
+          <Route path="/resto/kfc" exact component={RestoKfc} />
+          <Route path="/resto/mcd" exact component={RestoMcd} />
+          <Route path="/resto/bking" exact component={RestoBking} />
+          <Route path="/payment" exact component={Payment} />
+        </Switch>
+      </div>
+    );
+  }
 }
-
 export default App;
